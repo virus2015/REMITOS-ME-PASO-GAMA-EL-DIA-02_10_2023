@@ -376,7 +376,9 @@
 		;
 
 --Hoja 3: Unitarios a menos
-		select
+with datas as(
+
+select
 				it.fsc,
 				count(*) as quantity,
 				nvl(sum(pck.package_cost),0) as precio_De_venta,
@@ -418,7 +420,7 @@
 				pck.package_cost,
 				it.description
 			order by fsc
-		;
+		) select  dd.fsc,dd.quantity,dd.precio_De_venta ,dd.quantity*dd.precio_De_venta as total from datas dd
 
 --Hoja 4: Cajas concordantes
 		select
