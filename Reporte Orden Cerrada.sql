@@ -381,7 +381,7 @@ with datas as(
 select
 				it.fsc,
 				count(*) as quantity,
-				nvl(sum(pck.package_cost),0) as precio_De_venta,
+				nvl(pck.package_cost,0) as precio_De_venta,
 				nvl(sum(pck.package_cost),0) as total,
 				it.description
 			from packages pck
